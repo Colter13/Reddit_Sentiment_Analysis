@@ -2,6 +2,7 @@ import praw
 import re
 import random
 import os
+from dotenv import load_dotenv
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
@@ -64,6 +65,7 @@ def predict_sentiment(sentence):
     return sentiment
 
 # Reddit API authentication
+load_dotenv()
 reddit = praw.Reddit(
     client_id=os.getenv("REDDIT_CLIENT_ID"),
     client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
